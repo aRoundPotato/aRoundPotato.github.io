@@ -20,13 +20,12 @@
     .when("/about", {templateUrl: "partials/about.html", controller: "PageCtrl"})
     .when("/faq", {templateUrl: "partials/faq.html", controller: "PageCtrl"})
     .when("/post", {templateUrl: "partials/post_edit.html", controller: "PageCtrl"})
-    .when("/services", {templateUrl: "partials/services.html", controller: "PageCtrl"})
     .when("/contact", {templateUrl: "partials/contact.html", controller: "PageCtrl"})
     .when("/login", {templateUrl: "partials/login.html", controller: "PageCtrl"})
     .when("/signup", {templateUrl: "partials/signup.html", controller: "PageCtrl"})
     // Blog
-    .when("/blog", {templateUrl: "partials/blog.html", controller: "BlogCtrl"})
-    .when("/blog/post", {templateUrl: "partials/blog_item.html", controller: "BlogCtrl"})
+    .when("/jobs", {templateUrl: "partials/posting_list.html", controller: "BlogCtrl"})
+    .when("/jobs/item", {templateUrl: "partials/post_item.html", controller: "BlogCtrl"})
     // else 404
     .otherwise("/404", {templateUrl: "partials/404.html", controller: "PageCtrl"});
   }]);
@@ -42,16 +41,16 @@
   icons that areThis is a very basic starter template for a blog homepage. 
   It makes use of Font Awesome icons that areThis is a very basic starter template 
   for a blog homepage. It makes use of Font Awesome icons that are
-  `;
+    `;
 
-    $scope.friends = [
-    {name:'John', description: descriptions, date: "May 24, 2016", epochTime: 1464062400},
-    {name:'Jessie', description: descriptions, date: "May 25, 2016", epochTime: 1464148800},
-    {name:'Johanna', description: descriptions, date: "May 26, 2016", epochTime: 1464235200},
-    {name:'Joy', description: descriptions, date: "May 27, 2016", epochTime: 1464321600},
-    {name:'Mary', description: descriptions, date: "May 23, 2016", epochTime: 1463976000},
-    {name:'Peter',description: descriptions, date: "May 29, 2016", epochTime: 1464494400},
-    {name:'Sebastian',description: descriptions, date: "May 22, 2016", epochTime: 1463889600},
+  $scope.friends = [
+  {name:'John', description: descriptions, date: "May 24, 2016", epochTime: 1464062400},
+  {name:'Jessie', description: descriptions, date: "May 25, 2016", epochTime: 1464148800},
+  {name:'Johanna', description: descriptions, date: "May 26, 2016", epochTime: 1464235200},
+  {name:'Joy', description: descriptions, date: "May 27, 2016", epochTime: 1464321600},
+  {name:'Mary', description: descriptions, date: "May 23, 2016", epochTime: 1463976000},
+  {name:'Peter',description: descriptions, date: "May 29, 2016", epochTime: 1464494400},
+  {name:'Sebastian',description: descriptions, date: "May 22, 2016", epochTime: 1463889600},
   ];
 });
 
@@ -77,46 +76,67 @@
   $scope.loginState = loginService.getLoginState();
 
 
-}])
- app.controller('ContentCtrl', ['$scope', 'LoginService', function ($scope, loginService) {
 
+}])
+ app.controller('ContentCtrl', ['$scope', '$location','LoginService', function ($scope, $location, loginService) {
+
+  $scope.userList = loginService.getAccounts();
   $scope.click = function () {
     loginService.toggleIsLoggedIn();
   };
   $scope.register = function() {
-    $scope.userList = [];
     var account = {
       firstName: this.user.firstName,
       lastName: this.user.lastName,
       username: this.user.username,
       password: this.user.password,
-      posts: []
+      email: this.user.email
     };
-    $scope.userList.push("asdasd");
-    $scope.text = '';
+    $scope.userList.push(account);
+    loginService.addAccounts(userList);
+    loginService.toggleIsLoggedIn();
+    $location.path('/');
+
   };
 
   $scope.login = function() {
     $scope.userLength = $scope.userList.length;
-    var account = {
+    var user = {
       username: this.username,
       password: this.password,
     };
-    for(var i = 0; i <= $scope.userList.length; i++){
-      if($scope.userList[i].username == account.username && $scope.userList[i].password == account.password){
+    var isCorrect = false;
+    for(var i = 0; i < $scope.userLength; i++){
+      if(user.username ==  $scope.userList[i].username && user.password == $scope.userList[i].password){
+        loginService.toggleIsLoggedIn();
+        $location.path('/');
       }
     }
-    alert("Wrong username and password");
+    if(!isCorrect){
+      alert("Wrong");
+    }
+
+
 
   };
 
 }])
+
  app.factory('LoginService', function () {
 
   var loginState =
   {
     isLoggedIn: false
   };
+  var account1 = {
+      firstName: "John",
+      lastName: "Doe",
+      username: "John",
+      password: "password",
+      email: "email@email.com"
+  };
+  var accounts = [];
+  accounts.push(account1);
 
   return {
     getLoginState: function () {
@@ -124,8 +144,12 @@
     },
     toggleIsLoggedIn: function () {
       loginState.isLoggedIn = !loginState.isLoggedIn;
+    },
+    getAccounts: function () {
+      return accounts;
+    },
+    addAccounts: function (account) {
+      accounts = account
     }
   }
 });
-
- app.controller

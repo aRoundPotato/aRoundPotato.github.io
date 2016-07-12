@@ -22,24 +22,15 @@
                 <li ng-controller="ContentCtrl" ng-click="click()"><a href="#"><span class="glyphicon glyphicon-log-out"></span>Log Out</a></li>
             </ul>
             <ul class="nav navbar-nav">
-                <li><a href="#/services">Services</a>
+                <li><a href="#/jobs">Find a Job</a>
                 </li>
-                <li><a href="#/post">Post A Job</a>
+                <li><a ng-show="loginState.isLoggedIn" href="#/post">Post A Job</a>
                 </li>
                 <li><a href="#/about">About</a>
                 </li>
                 <li><a href="#/faq">FAQ</a>
                 </li>
                 <li><a href="#/contact">Contact</a>
-                </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#/blog">List of Posts</a>
-                        </li>
-                        <li><a href="#/blog/post">View One Post</a>
-                        </li>
-                    </ul>
                 </li>
             </ul>
         </div>

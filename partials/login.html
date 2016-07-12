@@ -6,14 +6,14 @@
         	<div class="col-sm-8">
             <h3>Login</h3>
 
-            <form  ng-submit="login()" ng-controller="ContentCtrl" ng-controller="HeaderCtrl">
+            <form  ng-submit="login()" ng-controller="ContentCtrl">
                 <div class="row">
                     <div class="form-group col-lg-4">
-                        <label for="input1">Username</label>
+                        <label for="input1">Username </label>
                         <input type="text" name="username" class="form-control" required="true" ng-model="username">
                     </div>
                     <div class="form-group col-lg-4">
-                        <label for="input2">Password{{userList}}</label>
+                        <label for="input2">Password {{userList}}</label>
                         <input type="password" name="password" class="form-control" required="true" ng-model="password">
                     </div>
                     <div class="form-group col-lg-12">
