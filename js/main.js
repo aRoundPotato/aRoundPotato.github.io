@@ -7,8 +7,7 @@
  * Main AngularJS Web Application
  */
 var app = angular.module('tutorialWebApp', [
-  'ngRoute'
-]);
+  'ngRoute','ngCookies']);
 
 /**
  * Configure the Routes
@@ -31,6 +30,7 @@ app.config(['$routeProvider', function ($routeProvider) {
     // else 404
     .otherwise("/404", {templateUrl: "partials/404.html", controller: "PageCtrl"});
 }]);
+
 
 /**
  * Controls the Blog
@@ -55,3 +55,47 @@ app.controller('PageCtrl', function (/* $scope, $location, $http */) {
     selector: "a[data-toggle=tooltip]"
   })
 });
+
+  app.controller('HeaderCtrl', ['$scope', 'LoginService', function ($scope, loginService) {
+    
+    $scope.loginState = loginService.getLoginState();
+    
+  }])
+  app.controller('ContentCtrl', ['$scope', 'LoginService', function ($scope, loginService) {
+    
+    $scope.click = function () {
+      loginService.toggleIsLoggedIn();
+    };
+    
+  }])
+  app.factory('LoginService', function () {
+    
+    var loginState =
+      {
+        isLoggedIn: false
+      };
+    
+    return {
+      getLoginState: function () {
+        return loginState;
+      },
+      toggleIsLoggedIn: function () {
+        loginState.isLoggedIn = !loginState.isLoggedIn;
+      }
+    }
+  });
+
+  app.controller('ExampleController', ['$scope', function($scope) {
+      $scope.userList = [];
+      var account = {
+            firstName: this.user.firstName,
+            lastName: this.user.lastName,
+            username: this.user.username,
+            password: this.user.password,
+      };
+      $scope.user = account;
+      $scope.register = function() {
+          $scope.userList.push("asdasd");
+          $scope.text = '';
+      };
+    }]);
