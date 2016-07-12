@@ -19,7 +19,7 @@
     // Pages
     .when("/about", {templateUrl: "partials/about.html", controller: "PageCtrl"})
     .when("/faq", {templateUrl: "partials/faq.html", controller: "PageCtrl"})
-    .when("/pricing", {templateUrl: "partials/pricing.html", controller: "PageCtrl"})
+    .when("/post", {templateUrl: "partials/post_edit.html", controller: "PageCtrl"})
     .when("/services", {templateUrl: "partials/services.html", controller: "PageCtrl"})
     .when("/contact", {templateUrl: "partials/contact.html", controller: "PageCtrl"})
     .when("/login", {templateUrl: "partials/login.html", controller: "PageCtrl"})
@@ -90,6 +90,7 @@
       lastName: this.user.lastName,
       username: this.user.username,
       password: this.user.password,
+      posts: []
     };
     $scope.userList.push("asdasd");
     $scope.text = '';
