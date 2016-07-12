@@ -38,27 +38,20 @@
  app.controller('BlogCtrl', function ( $scope, $location, $http ) {
   console.log("Blog Controller reporting for duty.");
 
-  var descriptions = `
-This is a very basic starter template for a blog homepage. It makes use of Font Awesome icons that are
-                built into the 'Modern Business' template, and it makes use of the Bootstrap 3 pager at the bottom of
-                the pageThis is a very basic starter template for a blog homepage. It makes use of Font Awesome icons that are
-                built into the 'Modern Business' template, and it makes use of the Bootstrap 3 pager at the bottom of
-                the pageThis is a very basic starter template for a blog homepage. It makes use of Font Awesome icons that are
-                built into the 'Modern Business' template, and it makes use of the Bootstrap 3 pager at the bottom of
-                the page
+  var descriptions = `This is a very basic starter template for a blog homepage. It makes use of Font Awesome 
+  icons that areThis is a very basic starter template for a blog homepage. 
+  It makes use of Font Awesome icons that areThis is a very basic starter template 
+  for a blog homepage. It makes use of Font Awesome icons that are
   `;
 
     $scope.friends = [
-    {name:'John', age: 12, gender:'boy'},
-    {name:'Jessie', age:30, gender:'girl'},
-    {name:'Johanna', age:28, gender:'girl'},
-    {name:'Joy', age:15, gender:'girl'},
-    {name:'Mary', age:28, gender:'girl'},
-    {name:'Peter', age:95, gender:'boy'},
-    {name:'Sebastian', age:50, gender:'boy'},
-    {name:'Erika', age:27, gender:'girl'},
-    {name:'Patrick', age:40, gender:'boy'},
-    {name:'Samantha', age:60, gender:'girl'}
+    {name:'John', description: descriptions, date: "May 24, 2016", epochTime: 1464062400},
+    {name:'Jessie', description: descriptions, date: "May 25, 2016", epochTime: 1464148800},
+    {name:'Johanna', description: descriptions, date: "May 26, 2016", epochTime: 1464235200},
+    {name:'Joy', description: descriptions, date: "May 27, 2016", epochTime: 1464321600},
+    {name:'Mary', description: descriptions, date: "May 23, 2016", epochTime: 1463976000},
+    {name:'Peter',description: descriptions, date: "May 29, 2016", epochTime: 1464494400},
+    {name:'Sebastian',description: descriptions, date: "May 22, 2016", epochTime: 1463889600},
   ];
 });
 

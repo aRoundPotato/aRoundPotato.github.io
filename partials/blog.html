@@ -15,87 +15,30 @@
 
     </div>
 
-    <div class="row" ng-controller="BlogCtrl">
-
-        <div class="col-md-1" >
-            <p><i class="fa fa-camera fa-4x"></i>
-            </p>
-
-            <p>May 24, 2013</p>
-            <p ng-repeat="friend in friends">{{friend.name}}</p>
-        </div>
-        <div class="col-md-6">
-            <h3><a href="blog-post.html">A Blog Home Template for Bootstrap 3</a>
-            </h3>
-
-            <p>by <a href="#">Start Bootstrap</a>
-            </p>
-
-            <p>This is a very basic starter template for a blog homepage. It makes use of Font Awesome icons that are
-                built into the 'Modern Business' template, and it makes use of the Bootstrap 3 pager at the bottom of
-                the page.</p>
-            <a class="btn btn-primary" href="blog-post.html">Read More <i class="fa fa-angle-right"></i></a>
-        </div>
-
-    </div>
-
+    <div ng-controller="BlogCtrl" ng-repeat="friend in friends | orderBy: 'epochTime'">
     <hr>
+        <div class="row">
 
-    <div class="row">
+            <div class="col-md-1" >
+                <p><i class="fa fa-camera fa-4x"></i>
+                </p>
 
-        <div class="col-md-1">
-            <p><i class="fa fa-film fa-4x"></i>
-            </p>
+                <p>{{friend.date}}</p>
+            </div>
+            <div class="col-md-6">
+                <h3><a href="blog-post.html">A Blog Home Template for Bootstrap 3</a>
+                </h3>
 
-            <p>May 24, 2013</p>
-        </div>
-        <div class="col-md-5">
-            <a href="blog-post.html">
-                <img src="http://placehold.it/600x300" class="img-responsive">
-            </a>
-        </div>
-        <div class="col-md-6">
-            <h3><a href="blog-post.html">A Blog Home Template for Bootstrap 3</a>
-            </h3>
+                <p>by <a href="#">{{friend.name}}</a>
+                </p>
 
-            <p>by <a href="#">Start Bootstrap</a>
-            </p>
-
-            <p>This is a very basic starter template for a blog homepage. It makes use of Font Awesome icons that are
-                built into the 'Modern Business' template, and it makes use of the Bootstrap 3 pager at the bottom of
-                the page.</p>
-            <a class="btn btn-primary" href="blog-post.html">Read More <i class="fa fa-angle-right"></i></a>
+                <p maxlength="">{{friend.description}}</p>
+                <a class="btn btn-primary" href="blog_item.html">Read More <i class="fa fa-angle-right"></i></a>
+            </div>
+            <hr>
         </div>
     </div>
 
-    <hr>
-
-    <div class="row">
-
-        <div class="col-md-1">
-            <p><i class="fa fa-file-text fa-4x"></i>
-            </p>
-
-            <p>May 24, 2013</p>
-        </div>
-        <div class="col-md-5">
-            <a href="blog-post.html">
-                <img src="http://placehold.it/600x300" class="img-responsive">
-            </a>
-        </div>
-        <div class="col-md-6">
-            <h3><a href="blog-post.html">A Blog Home Template for Bootstrap 3</a>
-            </h3>
-
-            <p>by <a href="#">Start Bootstrap</a>
-            </p>
-
-            <p>This is a very basic starter template for a blog homepage. It makes use of Font Awesome icons that are
-                built into the 'Modern Business' template, and it makes use of the Bootstrap 3 pager at the bottom of
-                the page.</p>
-            <a class="btn btn-primary" href="blog-post.html">Read More <i class="fa fa-angle-right"></i></a>
-        </div>
-    </div>
 
     <hr>
 
