@@ -2,34 +2,52 @@
 
     <div class="row">
 
-        <h3>Edit Post</h3>
+        <h3>Create Post</h3>
         <hr>
 
-        <form  ng-submit="login()" ng-controller="ArticleDetailController" >
+        <form  ng-submit="post()" ng-controller="BlogCtrl" >
             <div class="row">
                 <div class="form-group col-lg-12 row">
-                    <label for="input1">Title</label>
+                    <label for="input1">Title*</label>
                     <input type="text" name="title" class="form-control" required="true" ng-model="title">
                 </div>
                 <div class="form-group col-lg-12 row">
-                    <label for="input2">Description</label>
+                    <label for="input2">Description*</label>
                     <textarea type="textarea" name="description" class="form-control scrollabletextbox"  rows="10" required="true" ng-model="description"></textarea>
                 </div>
                 <div class="form-group row">
                     <div class="form-group col-md-3">
-                      <label for="category">Category:</label>
-                      <select class="form-control" id="category">
+                      <label for="category">Category*</label>
+                      <select class="form-control" id="category" ng-model="category">
                         <option>Other</option>
                         <option>Arts and Crafts</option>
-                        <option>Design</option>
-                        <option>Software</option>
+                        <option>Websites,IT and Software</option>
+                        <option>Writing and Content</option>
+                        <option>Product Sourcing and Manufacturing</option>
+                        <option>Business Services</option>
+                        <option>Mobile Phones and Computing</option>
+                        <option>Data Entry and Admin</option>
+                        <option>Translantions and Languages</option>
+                        <option>Design, Media and Architecture</option>
+                        <option>Sales and Marketing</option>
+                        <option>Engineering and Science</option>
                     </select>
                 </div>
                 <div class="form-group col-md-3">
-                      <label for="assigned">Assigned</label>
-                      <select class="form-control" id="assigned">
-                        <option>No</option>
-                        <option>Yes</option>
+                      <label ng-if="category == 'Other'" for="categoryOther">What Category*</label>
+                      <input class="form-control" type="text" name="categoryOthery" ng-model="categoryOther" id="categoryOther" required="true" ng-if="category == 'Other'">
+                      
+                </div>
+                <div class="form-group col-md-3">
+                      <label for="estimatedTime">Estimated Time To Complete</label>
+                      <select class="form-control" id="estimatedTime" ng-model="estimatedTime">
+                        <option selected="selected">1 Day</option>
+                        <option>Less than 1 week</option>
+                        <option>Less than 2 weeks</option>
+                        <option>Less than 3 weeks</option>
+                        <option>Less than 1 month</option>
+                        <option>Greater than 1 month</option>
+
                     </select>
                 </div>
             </div>
@@ -39,7 +57,7 @@
             </div>
 
             <div class="form-group col-md-6 row" >
-                <label for="email">Email</label>
+                <label for="email">Email*</label>
                 <input type="email" name="email" class="form-control" required="true" ng-model="email">
             </div>
             <div class="form-group col-md-6" >
@@ -49,9 +67,9 @@
             <hr>
             <div class="form-group col-lg-12 row">
                 <input type="submit" value="Submit" id="submit" class="btn btn-primary"></input>
-                <a href="">Cancel</a>
-
+                <a href="/#">Cancel</a>
             </div>
+            <p>*Required</p>
         </div>
     </form>
 

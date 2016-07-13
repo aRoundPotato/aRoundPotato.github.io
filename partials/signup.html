@@ -8,29 +8,31 @@
 	            <form role="form" ng-submit="register()" ng-controller="ContentCtrl">
 	                <div class="row">
 	                    <div class="form-group">
-	                        <label for="input1">Name </label>
+	                        <label for="input1">Name* </label>
 	                        <input type="text" name="contact_name" class="form-control" id="input1" required="true" ng-model="user.name">
 	                    </div>
 	                    <div class="form-group ">
-	                        <label for="input2">Email Address</label>
+	                        <label for="input2">Email Address*</label>
 	                        <input type="email" name="contact_email" class="form-control" id="input2" required="true" ng-model="user.email">
 	                    </div>
 	                    <div class="form-group">
-	                        <label for="input3">Username</label>
+	                        <label for="input3">Username*</label>
 	                        <input type="text" name="username" class="form-control" id="input3" required="true" ng-model="user.username">
 	                    </div>
 	                    <div class="form-group">
-	                        <label for="input3">Password</label>
+	                        <label for="input3">Password*</label>
 	                        <input type="password" name="password" class="form-control" id="input4" required="true" ng-model="user.password">
 	                    </div>
 	                    <div class="form-group">
-	                        <label for="input3">Re-Type Password</label>
+	                        <label for="input3">Re-Type Password*</label>
 	                        <input type="password" name="retype-password" class="form-control" id="input5" required="true" ng-model="user.retypePassword">
 	                    </div>
 	                    <div class="form-group">
 	                        <input type="hidden" name="save" value="contact">
 	                        <button type="submit" class="btn btn-primary">Submit</button>
+	                        <a href="#/login">Login</a>
 	                    </div>
+	                    <p>*Required</p>
 	                </div>
 	            </form>
 	        </div>

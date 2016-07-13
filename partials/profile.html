@@ -1,0 +1,45 @@
+<div class = section>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h3 ng-controller="BlogCtrl">My Profile</h3>
+
+                <form role="form" ng-submit="register()" ng-controller="BlogCtrl">
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="input1">Name</label>
+                            <input type="text" name="contact_name" class="form-control" id="input1" required="true" ng-model="loggedInAccount.name">
+                        </div>
+                        <div class="form-group ">
+                            <label for="input2">Email Address</label>
+                            <input type="email" name="contact_email" class="form-control" id="input2" required="true" ng-model="loggedInAccount.email">
+                        </div>
+                        <div class="form-group">
+                            <label for="input3">Username</label>
+                            <input type="text" name="username" class="form-control" id="input3" required="true" ng-model="loggedInAccount.username" disabled="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="input3">Old-Password*</label>
+                            <input type="password" name="password" class="form-control" id="input4" required="true" ng-model="profile.password">
+                        </div>
+                        <div class="form-group">
+                            <label for="input3">Password</label>
+                            <input type="password" name="password" class="form-control" id="input5" required="true" ng-model="profile.password">
+                        </div>
+                        <div class="form-group">
+                            <label for="input3">Re-Type Password</label>
+                            <input type="password" name="retype-password" class="form-control" id="input6" required="true" ng-model="profile.retypePassword">
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" name="save" value="contact">
+                            <button type="submit" class="btn btn-primary">Save</button>             
+                        </div>
+                        <p>*Required</p>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+     </div>
+</div>

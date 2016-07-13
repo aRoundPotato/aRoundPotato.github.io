@@ -18,25 +18,31 @@
                 <li><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
             <ul class ="nav navbar-nav navbar-right " ng-show="loginState.isLoggedIn">
-                <li><a href="#/signup"><span class="glyphicon glyphicon-user"></span> My Account</a></li>
-                <li ng-controller="ContentCtrl" ng-click="click()"><a href="#"><span class="glyphicon glyphicon-log-out"></span>Log Out</a></li>
-            </ul>
-            <ul class="nav navbar-nav">
-                <li><a href="#/">Home</a>
-                </li>
-                <li><a href="#/jobs">Find a Job</a>
-                </li>
-                <li><a ng-show="loginState.isLoggedIn" href="#/post">Post A Job</a>
-                </li>
-                <li><a href="#/about">About</a>
-                </li>
-                <li><a href="#/faq">FAQ</a>
-                </li>
-                <li><a href="#/contact">Contact</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="">My Account
+                        <span class="caret "></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#/my_profile">My Profile</a></li>
+                          <li><a href="#/my_posts">My Posts</a></li>
+                      </ul>
+                  </li>
+              </li>
+              <li ng-controller="ContentCtrl" ng-click="logout()"><a href="#"><span class="glyphicon glyphicon-log-out"></span>Log Out</a></li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li><a href="#/"><span class="glyphicon glyphicon-home"></span>Home</a>
+            </li>
+            <li><a href="#/jobs"><span class="glyphicon glyphicon-search"></span>Find a Job</a>
+            </li>
+            <li><a ng-show="loginState.isLoggedIn" href="#/post">Post A Job</a>
+            </li>
+          <li><a href="#/faq">FAQ</a>
+          </li>
+          <li><a href="#/contact">Contact</a>
+          </li>
+      </ul>
+  </div>
+  <!-- /.navbar-collapse -->
+</div>
+<!-- /.container -->
 </nav>

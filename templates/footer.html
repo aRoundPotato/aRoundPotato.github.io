@@ -1,5 +1,13 @@
 <footer>
-    <div class="container">
-        <p><a href="https://github.com/outrightmental/angularjs-tutorial-1">&hearts; on github</a></p>
-    </div>
+	<div class="container">
+		<p id="demo"></p>
+
+		<script>
+		var myVar = setInterval(myTimer, 1000);
+			function myTimer() {
+				var d = new Date();
+				document.getElementById("demo").innerHTML = d;
+			}
+		</script>
+	</div>
 </footer>
