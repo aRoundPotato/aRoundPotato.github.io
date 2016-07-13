@@ -75,10 +75,14 @@
 
   $scope.loginState = loginService.getLoginState();
 
-
-
 }])
- app.controller('ContentCtrl', ['$scope', '$location','LoginService', function ($scope, $location, loginService) {
+
+app.controller('ContentCtrl', ['$scope', '$location', '$rootScope','LoginService', function ($scope, $location,$rootScope, loginService) {
+
+
+// $scope.$on('$locationChangeStart', function(event) {
+//        event.preventDefault();
+// });
 
   $scope.userList = loginService.getAccounts();
   $scope.click = function () {
@@ -92,10 +96,10 @@
       password: this.user.password,
       email: this.user.email
     };
+    // $location.path('/login');
+    toastr["success"]("Registered!");
     $scope.userList.push(account);
-    loginService.addAccounts(userList);
-    loginService.toggleIsLoggedIn();
-    $location.path('/login');
+    loginService.addAccounts($scope.userList);
 
   };
 
@@ -108,13 +112,16 @@
     var isCorrect = false;
     for(var i = 0; i < $scope.userLength; i++){
       if(user.username ==  $scope.userList[i].username && user.password == $scope.userList[i].password){
-        loginService.toggleIsLoggedIn();
         $location.path('/');
+         toastr["success"]("Logged In!");
+        isCorrect = true;
+        loginService.toggleIsLoggedIn();
       }
     }
     if(!isCorrect){
-      alert();
-    }
+      toastr["error"]("Wrong username or password");
+
+  }
 
 
 
@@ -123,6 +130,7 @@
 }])
 
  app.factory('LoginService', function () {
+
 
   var loginState =
   {
@@ -135,8 +143,7 @@
       password: "password",
       email: "email@email.com"
   };
-  var accounts = [];
-  accounts.push(account1);
+  var accounts = [account1];
 
   return {
     getLoginState: function () {
@@ -150,7 +157,7 @@
     },
     addAccounts: function (account) {
       accounts = account
-    }
+    },
   }
 });
 
@@ -159,3 +166,21 @@ $(document).on('click','.navbar-collapse.in',function(e) {
         $(this).collapse('hide');
     }
 });
+
+toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "100",
+  "hideDuration": "100",
+  "timeOut": "1500",
+  "extendedTimeOut": "100",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
