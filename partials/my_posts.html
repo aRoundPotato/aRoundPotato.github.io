@@ -1,0 +1,62 @@
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-12">
+            <h1 class="page-header">Postings
+                <small>Job Postings</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#/">Home</a>
+                </li>
+                <li class="active">Job Postings</li>
+            </ol>
+        </div>
+
+    </div>
+
+    <div ng-controller="BlogCtrl" ng-repeat="post in posts | orderBy: 'epochTime' : true | filter: {username: loggedInAccount.username}">
+    <hr>
+        <div class="row" ng-show="post != null">
+
+            <div class="col-md-1" >
+                <p><i class="fa fa-camera fa-4x"></i>
+                </p>
+                <p>{{post.date}}</p>
+            </div>
+            <div class="col-md-8">   
+                <h3><a href="blog-post.html">{{post.title}}</a>
+                </h3>
+
+                <p>by <a href="#">{{post.name}}</a>
+                </p>
+
+                <div id="quickDescription">{{post.description}}</div>
+                <a class="btn btn-primary" ng-click="editPost(post)"> Edit <i class="fa fa-angle-right"></i></a>
+                <a class="btn btn-danger" ng-click="post = null"> Delete <i class="fa fa-angle-right"></i></a>
+            </div>
+            <div class="col-md-2">
+                <p><strong>Category</strong></p>
+                <p>{{post.category}}</p>
+                <p><strong>Estimated Time</strong></p>
+                <p>{{post.estimatedTime}}</p>
+            </div>
+        </div>
+    </div>
+
+
+    <hr>
+
+    <div class="row">
+
+        <ul class="pager">
+            <li class="previous"><a href="#">&larr; Older</a>
+            </li>
+            <li class="next"><a href="#">Newer &rarr;</a>
+            </li>
+        </ul>
+
+    </div>
+
+</div>
+<!-- /.container -->

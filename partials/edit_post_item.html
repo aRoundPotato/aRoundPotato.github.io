@@ -2,24 +2,24 @@
 
     <div class="row" >
 
-        <h3>Create Post</h3>
+        <h3>This Post</h3>
         <hr>
 
         <form  ng-submit="something()" ng-controller="BlogCtrl" >
             <div class="row">
                 <div class="form-group col-lg-12 row">
-                    <label for="input1">Title*</label>
-                    <input type="text" name="title" class="form-control" required="true" ng-model="title">
+                    <label for="input1" >Title*</label>
+                    <input type="text" name="title" class="form-control" required="true" ng-model="postItem.title" >
                 </div>
                 <div class="form-group col-lg-12 row">
                     <label for="input2">Description*</label>
-                    <textarea type="textarea" name="description" class="form-control scrollabletextbox"  rows="10" required="true" ng-model="description"></textarea>
+                    <textarea type="textarea" name="description" class="form-control scrollabletextbox"  rows="10" required="true" ng-model="postItem.description"  ></textarea>
                 </div>
                 <div class="form-group row">
                     <div class="form-group col-md-3">
                       <label for="category">Category*</label>
-                      <select class="form-control" id="category" ng-model="category" ng-init="category='Arts and Crafts'" >
-                        <option selected="selected">Arts and Crafts</option>
+                      <select class="form-control" id="category" ng-model="postItemcategory" >
+                        <option>Arts and Crafts</option>
 
                         <option>Websites,IT and Software</option>
                         <option>Writing and Content</option>
@@ -36,8 +36,8 @@
                 </div>
                 <div class="form-group col-md-3">
                       <label for="estimatedTime">Estimated Time To Complete</label>
-                      <select class="form-control" id="estimatedTime" ng-model="estimatedTime" ng-init="estimatedTime='1 Day'">
-                        <option selected="selected">1 Day</option>
+                      <select class="form-control" id="estimatedTime" ng-model="someestimatedTime" ng-init="someestimatedTime = postItem.estimatedTime">
+                        <option>1 Day</option>
                         <option>Less than 1 week</option>
                         <option>Less than 2 weeks</option>
                         <option>Less than 3 weeks</option>
@@ -48,7 +48,7 @@
                 </div>
                 <div class="form-group col-md-3">
                       <label for="currency">Currency</label>
-                      <select class="form-control" id="currency" ng-model="currency" ng-init="currency='CAD'">
+                      <select class="form-control" id="currency" ng-model="currency" >
                         <option>CAD</option>
                         <option>USD</option>
                         <option>GBP</option>
@@ -59,9 +59,8 @@
                 </div>
                 <div class="form-group col-md-3">
                     <label for="input1">Pay*</label>
-                    <input type="text" name="pay" class="form-control" required="true" ng-model="pay" placeholder="100">
+                    <input type="text" name="pay" class="form-control" required="true" ng-model="postItem.pay" placeholder="100">
                 </div>
-
             </div>
             <hr>
             <div class="form-group row col-md-12">
@@ -70,16 +69,16 @@
 
             <div class="form-group col-md-6 row" >
                 <label for="email">Email*</label>
-                <input type="email" name="email" class="form-control" required="true" ng-model="email">
+                <input type="email" name="email" class="form-control" required="true" ng-model="postItem.email" >
             </div>
             <div class="form-group col-md-6" >
                 <label for="phoneNumber">Phone Number</label>
-                <input type="text" class="form-control bfh-phone" data-format="+1 (ddd) ddd-dddd" ng-model="phone">
+                <input type="text" class="form-control bfh-phone" data-format="+1 (ddd) ddd-dddd" ng-model="postItem.phone" >
             </div>
             <hr>
             <div class="form-group col-lg-12 row">
-                <input type="submit" value="Submit" id="submit" class="btn btn-primary"></input>
-                <a href="/#">Cancel</a>
+                <input type="submit" value="Submit" id="submit" class="btn btn-primary" "></input>
+                <a href="/jobs">Cancel</a>
             </div>
             <p>*Required</p>
         </div>
