@@ -1,1 +1,2 @@
-TEST
+TaskSeeker, a simple website for freelancers and people to post some tasks for other people to do.
+Somewhat complete. Since there is no database, refreshing the page or moving to a different website would wipe everything, such as accounts
