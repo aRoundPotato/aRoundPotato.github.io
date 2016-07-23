@@ -1,14 +1,6 @@
-/**
- * AngularJS Tutorial 1
- * @author Nick Kaye <nick.c.kaye@gmail.com>
- */
-
-/**
- * Main AngularJS Web Application
- */
- 'use strict';
- var app = angular.module('tutorialWebApp', [
-  'ngRoute','ngCookies']);
+'use strict';
+ var app = angular.module('taskSeeker', [
+  'ngRoute']);
 
 /**
  * Configure the Routes
